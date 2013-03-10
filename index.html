@@ -60,6 +60,11 @@ var svg = d3.select('body').append('svg')
       .scale(projection.scale())
       .on("zoom", redraw))
 
+svg.append('rect')
+  .attr('width', width)
+  .attr('height', height)
+  .attr('opacity', '0')
+
 var path = d3.geo.path().projection(projection)
 
 
