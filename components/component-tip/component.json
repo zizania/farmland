@@ -1,0 +1,27 @@
+{
+  "name": "tip",
+  "description": "Tip component",
+  "version": "0.2.0",
+  "keywords": [
+    "tooltip",
+    "tip",
+    "ui"
+  ],
+  "dependencies": {
+    "component/emitter": "*",
+    "component/inherit": "*",
+    "component/jquery": "*"
+  },
+  "development": {
+    "component/aurora-tip": "*"
+  },
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "tip.css"
+  ],
+  "license": "MIT",
+  "repo": "https://raw.github.com/component/tip"
+}
