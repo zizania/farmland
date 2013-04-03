@@ -1,0 +1,22 @@
+{
+  "name": "farmland",
+  "repo": "zizania/farmland",
+  "description": "Our farmland(TM)",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "mbostock/d3": "*",
+    "component/tip": "*",
+    "component/aurora-tip": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js",
+    "farmland-outline-geo.js",
+    "trees-geo.js"
+  ],
+  "styles": [
+    "farmland.css"
+  ]
+}
