@@ -89,4 +89,7 @@ function redraw() {
   trees
     .attr('cx', function (c) { return projection(c.coordinates)[0] })
     .attr('cy', function (c) { return projection(c.coordinates)[1] })
+    .each(function (c) {
+      c.tip && c.tip.reposition()
+    })
 }
