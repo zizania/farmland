@@ -1,4 +1,5 @@
 var d3 = require('d3')
+  , Tip = require('tip')
 
 var farmland = {
   type: 'FeatureCollection',
@@ -59,8 +60,17 @@ treesGroup
   .selectAll('circle').data(trees)
   .enter().append('circle')
   .attr('class', 'tree')
-  .attr('id', function (c) { return c.id })
+  .attr('id', function (c) { return 'tree' + c.id })
   .attr('r', 5)
+  .on('click', function (c) {
+    if (c.tip) {
+      c.tip.remove()
+      delete c.tip
+    }
+    else {
+      c.tip = (new Tip('tree ' + c.id)).position('south').show(this)
+    }
+  })
 
 redraw()
 

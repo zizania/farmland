@@ -6,7 +6,8 @@
   "keywords": [],
   "dependencies": {
     "mbostock/d3": "*",
-    "component/tip": "*"
+    "component/tip": "*",
+    "component/aurora-tip": "*"
   },
   "development": {},
   "license": "MIT",
