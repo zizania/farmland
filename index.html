@@ -106,10 +106,6 @@ function redraw() {
   trees
     .attr('cx', function (c) { return projection(c.coordinates)[0] })
     .attr('cy', function (c) { return projection(c.coordinates)[1] })
-
-  if (d3.event && d3.event.scale > 69737183) {
-    treesGroup.selectAll()
-  }
 }
 
 
