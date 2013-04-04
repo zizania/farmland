@@ -16,27 +16,24 @@ var farmland = {
   }]
 }
 
-var width  = window.innerWidth - 50
-  , height = window.innerHeight - 50
-
 var projection = d3.geo.mercator()
   .center([25.077496, 35.304934])
-  .scale(width * 5353)
+  .scale(window.innerWidth * 5353)
 
-projection.translate([width / 2, height / 2])
+projection.translate([window.innerWidth / 2, window.innerHeight / 2])
 
 var svg = d3.select('body').append('svg')
   .attr('id', 'map')
-  .attr('width', width)
-  .attr('height', height)
+  .attr('width', '100%')
+  .attr('height', '100%')
   .call(d3.behavior.zoom()
       .translate(projection.translate())
       .scale(projection.scale())
       .on("zoom", redraw))
 
 svg.append('rect')
-  .attr('width', width)
-  .attr('height', height)
+  .attr('width', '100%')
+  .attr('height', '100%')
   .attr('opacity', '0')
 
 var path = d3.geo.path().projection(projection)
