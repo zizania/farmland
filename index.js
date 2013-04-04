@@ -61,7 +61,6 @@ treesGroup
   .enter().append('circle')
   .attr('class', 'tree')
   .attr('id', function (c) { return 'tree' + c.id })
-  .attr('r', 5)
   .on('click', function (c) {
     if (c.tip) {
       c.tip.remove()
@@ -72,13 +71,30 @@ treesGroup
     }
   })
 
+var treeRadiusScale = d3.scale.linear()
+
+treeRadiusScale
+  .domain([projection.scale(), projection.scale() * 10])
+  .range([5, 30])
+
 redraw()
 
 function redraw() {
+  var scale, translate
+
+  if (d3.event) {
+    scale = d3.event.scale
+    translate = d3.event.translate
+  }
+  else {
+    scale = projection.scale()
+    translate = projection.translate()
+  }
+
   if (d3.event) {
     projection
-      .translate(d3.event.translate)
-      .scale(d3.event.scale)
+      .translate(translate)
+      .scale(scale)
   }
 
   // force re-projection
@@ -89,6 +105,7 @@ function redraw() {
   trees
     .attr('cx', function (c) { return projection(c.coordinates)[0] })
     .attr('cy', function (c) { return projection(c.coordinates)[1] })
+    .attr('r', treeRadiusScale(scale))
     .each(function (c) {
       c.tip && c.tip.reposition()
     })
